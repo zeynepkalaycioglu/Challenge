@@ -620,7 +620,6 @@ GameObject:
   - component: {fileID: 259045954}
   - component: {fileID: 259045953}
   - component: {fileID: 259045956}
-  - component: {fileID: 259045957}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Player
@@ -635,12 +634,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259045951}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1616690994}
-  m_RootOrder: 2
+  m_Father: {fileID: 1988473538}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &259045953
 BoxCollider:
@@ -718,22 +717,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cube: {fileID: 259045951}
   sizeChange: {x: 0, y: 0.25, z: 0}
---- !u!54 &259045957
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259045951}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 0
 --- !u!1 &299468696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3664,7 +3647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4889916270699016, guid: 313ad0ef31f75b84f9f31c0528802fdd, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4889916270699016, guid: 313ad0ef31f75b84f9f31c0528802fdd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5094,6 +5077,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 259045952}
   - {fileID: 1616690994}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -5496,6 +5480,10 @@ PrefabInstance:
     - target: {fileID: 785373250343345178, guid: dde49cce61005a447aa793a366e4d7e8, type: 3}
       propertyPath: m_Name
       value: Obstacle 0.25x
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470096114691496111, guid: dde49cce61005a447aa793a366e4d7e8, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4308765333581298255, guid: dde49cce61005a447aa793a366e4d7e8, type: 3}
       propertyPath: m_IsTrigger

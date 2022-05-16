@@ -39,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
     
     IEnumerator UsingPowerUp()
     {
+        powerUpButton.interactable = false;
         yield return new WaitForSeconds(5.0f);
         forwardMoveSpeed = forwardMoveSpeed / 2.5f;
-        powerUpButton.interactable = false;
     }
 }
