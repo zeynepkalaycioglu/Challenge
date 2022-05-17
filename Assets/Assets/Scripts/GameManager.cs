@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     
      
     public int score;
+    public float winScoreBonus;
     
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Congratz);
+        CalculatingEndScore();
         uiManager.EndGame();
         uiManager.PrefSaving();
         playerManager.playerState = PlayerManager.PlayerState.Win;
@@ -58,5 +60,14 @@ public class GameManager : MonoBehaviour
     public void ObstacleCrashed(GameObject obstacle)
     { 
         collectibleManager.ObstacleCrashed(obstacle);
+    }
+
+    public void CalculatingEndScore()
+    {
+        winScoreBonus = score + playerCollectible.calculatedScore;
+        uiManager.ScoreCalculationEnd(playerCollectible.calculatedScore);
+        
+        Debug.Log(winScoreBonus + " win score");
+        score += (int)winScoreBonus;
     }
 }

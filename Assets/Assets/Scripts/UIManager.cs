@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     
     public int currentScore;
     public Text scoreText;
+    public Text gainedScoreText;
+
+    public int endScore;
     
     
     private void Start()
@@ -47,7 +50,7 @@ public class UIManager : MonoBehaviour
     
     public void EndGame()
     {
-        ScoreCalculation();
+        ScoreCalculationEnd(GameManager.Instance.playerCollectible.calculatedScore);
         gameScreen.SetActive(false);
         gameEndScreen.SetActive(true);
     }
@@ -63,9 +66,9 @@ public class UIManager : MonoBehaviour
         scoreText.text = currentScore.ToString();
     }
 
-    public void ScoreCalculation()
+    public void ScoreCalculationEnd(float gainedScore)
     {
-        GameManager.Instance.score += GameManager.Instance.playerCollectible.calculatedScore;
+        gainedScoreText.text = gainedScore.ToString();
     }
 
     public void PrefSaving()

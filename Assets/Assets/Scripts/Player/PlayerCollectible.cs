@@ -8,9 +8,9 @@ public class PlayerCollectible : MonoBehaviour
     public GameObject cube;
     public Vector3 sizeChange;
     public Vector3 endScale;
-    public int calculatedScore;
-    public int scaleAmount;
-    public int endMultiplyAmount = 10;
+    public float calculatedScore;
+    public float scaleAmount;
+    public float endMultiplyAmount = 10f;
 
     private void Update()
     {
@@ -26,7 +26,6 @@ public class PlayerCollectible : MonoBehaviour
     {
         if (collision.transform.CompareTag("Coin"))
         {
-            Debug.Log("collided coin");
             collision.GetComponent<SphereCollider>().enabled = false;
             cube.transform.localScale += sizeChange;
             GameManager.Instance.CoinCollected(collision.gameObject);
@@ -35,7 +34,6 @@ public class PlayerCollectible : MonoBehaviour
 
         if (collision.transform.CompareTag("Obstacle025x"))
         {
-            Debug.Log("collided 025");
             collision.GetComponent<SphereCollider>().enabled = false;
             cube.transform.localScale -= sizeChange;
             GameManager.Instance.ObstacleCrashed(collision.gameObject);
@@ -44,7 +42,6 @@ public class PlayerCollectible : MonoBehaviour
         
         if (collision.transform.CompareTag("Obstacle05x"))
         {
-            Debug.Log("collided 05");
             collision.GetComponent<SphereCollider>().enabled = false;
             cube.transform.localScale -= sizeChange * 2;
             GameManager.Instance.ObstacleCrashed(collision.gameObject);
@@ -54,19 +51,18 @@ public class PlayerCollectible : MonoBehaviour
         
         if (collision.transform.CompareTag("WinDetector"))
         {
-            Debug.Log("collided win detector");
-            GameManager.Instance.EndGame();
             WinScoreCalculation();
+            GameManager.Instance.EndGame();
         }
 
     }
 
     public void WinScoreCalculation()
     {
-       endScale.y = Mathf.RoundToInt(endScale.y);
-       endScale.y = (int)cube.transform.localScale.y;
-       endScale.y = scaleAmount;
+       endScale.y = cube.transform.localScale.y;
+       scaleAmount = endScale.y;
        calculatedScore = scaleAmount * endMultiplyAmount;
+       Debug.Log(endScale.y + " end scale value");
        Debug.Log(calculatedScore);
     }
 }
