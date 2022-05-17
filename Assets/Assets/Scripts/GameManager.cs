@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Congratz);
         CalculatingEndScore();
+        CalculatingFinalScoreUI();
         uiManager.EndGame();
         uiManager.PrefSaving();
         playerManager.playerState = PlayerManager.PlayerState.Win;
@@ -69,5 +70,10 @@ public class GameManager : MonoBehaviour
         
         Debug.Log(winScoreBonus + " win score");
         score += (int)winScoreBonus;
+    }
+
+    public void CalculatingFinalScoreUI()
+    {
+        uiManager.ScoreCalculationEndForUI(playerCollectible.calculatedScore + score);
     }
 }

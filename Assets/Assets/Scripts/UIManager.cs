@@ -15,8 +15,8 @@ public class UIManager : MonoBehaviour
     public int currentScore;
     public Text scoreText;
     public Text gainedScoreText;
-
-    public int endScore;
+    public Text endUIText;
+    
     
     
     private void Start()
@@ -69,6 +69,11 @@ public class UIManager : MonoBehaviour
     public void ScoreCalculationEnd(float gainedScore)
     {
         gainedScoreText.text = gainedScore.ToString();
+    }
+    
+    public void ScoreCalculationEndForUI(float endUI)
+    {
+        endUIText.text = endUI.ToString();
     }
 
     public void PrefSaving()
