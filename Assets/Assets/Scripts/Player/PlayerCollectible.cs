@@ -54,7 +54,8 @@ public class PlayerCollectible : MonoBehaviour
         
         if (collision.transform.CompareTag("WinDetector"))
         {
-            //GameManager.Instance.EndGame();
+            Debug.Log("collided win detector");
+            GameManager.Instance.EndGame();
         }
 
     }
