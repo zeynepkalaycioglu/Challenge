@@ -27,23 +27,27 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    private void Start()
+    {
+        SoundManager.Instance.PlayBgMusic(SoundManager.BgMusicTypes.MainBgMusic);
+    }
 
     public void StartGame()
     {
         uiManager.StartGame();
         playerManager.playerState = PlayerManager.PlayerState.Move;
-        //SoundManager.Instance.PlayBgMusic(SoundManager.BgMusicTypes.MainBgMusic);
     }
     
     public void FailedGame()
     {
-       uiManager.FailedGame();
-       playerManager.playerState = PlayerManager.PlayerState.Stop;
+        SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Lose);
+        uiManager.FailedGame();
+        playerManager.playerState = PlayerManager.PlayerState.Stop;
     }
     public void EndGame()
     {
-        //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Congratz);
+        SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Congratz);
         CalculatingEndScore();
         CalculatingFinalScoreUI();
         uiManager.EndGame();

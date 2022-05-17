@@ -31,7 +31,7 @@ public class PlayerCollectible : MonoBehaviour
             cube.transform.localScale += sizeChange;
             character.transform.position += sizeChange / 2;
             GameManager.Instance.CoinCollected(collision.gameObject);
-            //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Collect);
+            SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Collect);
         }
 
         if (collision.transform.CompareTag("Obstacle025x"))
@@ -40,7 +40,7 @@ public class PlayerCollectible : MonoBehaviour
             cube.transform.localScale -= sizeChange;
             character.transform.position -= sizeChange / 2;
             GameManager.Instance.ObstacleCrashed(collision.gameObject);
-            //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Crash);
+            SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Crash);
         }
         
         if (collision.transform.CompareTag("Obstacle05x"))
@@ -49,7 +49,7 @@ public class PlayerCollectible : MonoBehaviour
             cube.transform.localScale -= sizeChange * 2;
             character.transform.position -= sizeChange;
             GameManager.Instance.ObstacleCrashed(collision.gameObject);
-            //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Crash);
+            SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Crash);
 
         }
         
