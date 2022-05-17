@@ -12,9 +12,14 @@ public class UIManager : MonoBehaviour
     public GameObject failScreen;
     public GameObject levelMapScreen;
     
-    public int currentScore = 0;
+    public int currentScore;
     public Text scoreText;
     
+    
+    private void Start()
+    {
+        currentScore = GameManager.Instance.score;
+    }
     
     public void PlayButtonPressed()
     {
@@ -36,12 +41,13 @@ public class UIManager : MonoBehaviour
     {
         splashScreen.SetActive(false);
         gameScreen.SetActive(true);
-        GameManager.Instance.score = PlayerPrefs.GetInt("score", currentScore);
-        scoreText.text = currentScore.ToString();
+        GameManager.Instance.score = PlayerPrefs.GetInt("score", GameManager.Instance.score);
+        scoreText.text = GameManager.Instance.score.ToString();
     }
     
     public void EndGame()
     {
+        ScoreCalculation();
         gameScreen.SetActive(false);
         gameEndScreen.SetActive(true);
     }
@@ -55,6 +61,11 @@ public class UIManager : MonoBehaviour
     public void CoinCollected(int currentScore)
     {
         scoreText.text = currentScore.ToString();
+    }
+
+    public void ScoreCalculation()
+    {
+        GameManager.Instance.score += GameManager.Instance.playerCollectible.calculatedScore;
     }
 
     public void PrefSaving()

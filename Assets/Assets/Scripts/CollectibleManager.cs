@@ -10,4 +10,11 @@ public class CollectibleManager : MonoBehaviour
         coin.gameObject.SetActive(false);
 
     }
+    
+    public void ObstacleCrashed(GameObject obstacle)
+    {
+
+        obstacle.gameObject.SetActive(false);
+
+    }
 }

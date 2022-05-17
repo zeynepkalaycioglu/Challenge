@@ -7,7 +7,10 @@ public class PlayerCollectible : MonoBehaviour
 {
     public GameObject cube;
     public Vector3 sizeChange;
-
+    public Vector3 endScale;
+    public int calculatedScore;
+    public int scaleAmount;
+    public int endMultiplyAmount = 10;
 
     private void Update()
     {
@@ -35,7 +38,7 @@ public class PlayerCollectible : MonoBehaviour
             Debug.Log("collided 025");
             collision.GetComponent<SphereCollider>().enabled = false;
             cube.transform.localScale -= sizeChange;
-            //GameManager.Instance.PlayerCrashedObstacle();
+            GameManager.Instance.ObstacleCrashed(collision.gameObject);
             //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Crash);
         }
         
@@ -44,19 +47,26 @@ public class PlayerCollectible : MonoBehaviour
             Debug.Log("collided 05");
             collision.GetComponent<SphereCollider>().enabled = false;
             cube.transform.localScale -= sizeChange * 2;
-                //GameManager.Instance.PlayerCrashedObstacle();
-                //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Crash);
-         
-            
-           
-            
+            GameManager.Instance.ObstacleCrashed(collision.gameObject);
+            //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Crash);
+
         }
         
         if (collision.transform.CompareTag("WinDetector"))
         {
             Debug.Log("collided win detector");
             GameManager.Instance.EndGame();
+            WinScoreCalculation();
         }
 
+    }
+
+    public void WinScoreCalculation()
+    {
+       endScale.y = Mathf.RoundToInt(endScale.y);
+       endScale.y = (int)cube.transform.localScale.y;
+       endScale.y = scaleAmount;
+       calculatedScore = scaleAmount * endMultiplyAmount;
+       Debug.Log(calculatedScore);
     }
 }

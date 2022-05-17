@@ -9,10 +9,11 @@ public class GameManager : MonoBehaviour
     
     public UIManager uiManager;
     public PlayerManager playerManager;
+    public PlayerCollectible playerCollectible;
     public CollectibleManager collectibleManager;
     
      
-    public int score = 0;
+    public int score;
     
     private void Awake()
     {
@@ -52,5 +53,10 @@ public class GameManager : MonoBehaviour
         score++;
         uiManager.CoinCollected(score);   
         collectibleManager.CoinCollected(coin);
+    }
+    
+    public void ObstacleCrashed(GameObject obstacle)
+    { 
+        collectibleManager.ObstacleCrashed(obstacle);
     }
 }

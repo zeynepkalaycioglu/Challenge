@@ -717,6 +717,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cube: {fileID: 259045951}
   sizeChange: {x: 0, y: 0.25, z: 0}
+  endScale: {x: 0, y: 0, z: 0}
+  calculatedScore: 0
+  scaleAmount: 0
+  endMultiplyAmount: 10
 --- !u!1 &299468696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,6 +3072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1136861524}
   playerManager: {fileID: 1988473536}
+  playerCollectible: {fileID: 259045956}
   collectibleManager: {fileID: 1716503728}
   score: 0
 --- !u!4 &986745949
