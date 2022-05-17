@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerCollectible : MonoBehaviour
 {
     public GameObject cube;
+    public GameObject character;
     public Vector3 sizeChange;
     public Vector3 endScale;
     public float calculatedScore;
@@ -28,6 +29,7 @@ public class PlayerCollectible : MonoBehaviour
         {
             collision.GetComponent<SphereCollider>().enabled = false;
             cube.transform.localScale += sizeChange;
+            character.transform.position += sizeChange / 2;
             GameManager.Instance.CoinCollected(collision.gameObject);
             //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Collect);
         }
@@ -36,6 +38,7 @@ public class PlayerCollectible : MonoBehaviour
         {
             collision.GetComponent<SphereCollider>().enabled = false;
             cube.transform.localScale -= sizeChange;
+            character.transform.position -= sizeChange / 2;
             GameManager.Instance.ObstacleCrashed(collision.gameObject);
             //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Crash);
         }
@@ -44,6 +47,7 @@ public class PlayerCollectible : MonoBehaviour
         {
             collision.GetComponent<SphereCollider>().enabled = false;
             cube.transform.localScale -= sizeChange * 2;
+            character.transform.position -= sizeChange;
             GameManager.Instance.ObstacleCrashed(collision.gameObject);
             //SoundManager.Instance.PlaySound(SoundManager.SoundTypes.Crash);
 

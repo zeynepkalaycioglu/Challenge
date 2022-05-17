@@ -874,6 +874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 259045951}
+  character: {fileID: 1616690993}
   sizeChange: {x: 0, y: 0.25, z: 0}
   endScale: {x: 0, y: 0, z: 0}
   calculatedScore: 0
